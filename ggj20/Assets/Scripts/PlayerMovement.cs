@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using Pathfinding;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 namespace com.BrutalHack.GlobalGameJam20
 {
@@ -8,7 +11,9 @@ namespace com.BrutalHack.GlobalGameJam20
     {
         [Range(1, 10)] [SerializeField] private int speed = 4;
         [Range(0, .3f)] [SerializeField] private float movementSmoothing = .05f;
+        [SerializeField] private Transform aiPathTarget;
 
+        private AIPath aiPath;
         private Rigidbody2D _rigidBody2D;
         private SpriteRenderer _spriteRenderer;
         private PlayerInput _playerInput;
@@ -19,6 +24,7 @@ namespace com.BrutalHack.GlobalGameJam20
 
         private void Awake()
         {
+            aiPath = GetComponent<AIPath>();
             _rigidBody2D = GetComponent<Rigidbody2D>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _playerInput = new PlayerInput();
@@ -27,19 +33,39 @@ namespace com.BrutalHack.GlobalGameJam20
 
         private void Update()
         {
+            UpdateMouseMovement();
             moveX = _movementInput.x * speed;
             moveY = _movementInput.y * speed;
-            
+
             Vector3 targetVelocity = new Vector2(moveX, moveY);
             _rigidBody2D.velocity =
                 Vector3.SmoothDamp(_rigidBody2D.velocity, targetVelocity, ref velocity, movementSmoothing);
-            
+
             if (moveX > 0)
             {
                 _spriteRenderer.flipX = true;
-            }else if (moveX < 0)
+            }
+            else if (moveX < 0)
             {
                 _spriteRenderer.flipX = false;
+            }
+        }
+
+        private void UpdateMouseMovement()
+        {
+            if (Mouse.current.leftButton.wasPressedThisFrame)
+            {
+                if (Camera.main == null)
+                {
+                    return;
+                }
+
+                var raycast = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+                if (Physics.Raycast(raycast, out var raycastHit))
+                {
+                    aiPathTarget.position = raycastHit.point;
+                    aiPath.enabled = true;
+                }
             }
         }
 
