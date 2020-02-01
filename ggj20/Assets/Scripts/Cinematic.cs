@@ -20,7 +20,7 @@ namespace com.BrutalHack.GlobalGameJam20
         {
             cinematicUiController =
                 GameObject.FindWithTag("CinematicUiController").GetComponent<CinematicUiController>();
-            await PlayCinematic();
+            //await PlayCinematic();
         }
 
         async Task PlayCinematic()
