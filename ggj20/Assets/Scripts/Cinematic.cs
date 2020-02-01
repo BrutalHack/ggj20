@@ -16,8 +16,8 @@ namespace com.BrutalHack.GlobalGameJam20
         private CinematicUiController cinematicUiController;
         private bool isPlaying;
         private EventInstance currentEvent;
-        private const double CinematicStartDelay = 1.5;
-        private const double CinematicEndDelay = 0.5;
+        private const double cinematicStartDelay = 1.5;
+        private const double cinematicEndDelay = 0.5;
 
         // Start is called before the first frame update
         async void Start()
@@ -33,7 +33,7 @@ namespace com.BrutalHack.GlobalGameJam20
             cinematicUiController.Show();
             playerMovement.enabled = false;
             playerRigidBody.velocity = Vector2.zero;
-            await Task.Delay(TimeSpan.FromSeconds(CinematicStartDelay));
+            await Task.Delay(TimeSpan.FromSeconds(cinematicStartDelay));
             currentEvent = StartNextLine();
         }
 
@@ -43,7 +43,7 @@ namespace com.BrutalHack.GlobalGameJam20
             Debug.Log($"Cinematic {model.name} is complete. LinePosition: {nextLinePosition}");
             cinematicUiController.Hide();
             isPlaying = false;
-            await Task.Delay(TimeSpan.FromSeconds(CinematicEndDelay));
+            await Task.Delay(TimeSpan.FromSeconds(cinematicEndDelay));
             playerMovement.enabled = true;
         }
 
