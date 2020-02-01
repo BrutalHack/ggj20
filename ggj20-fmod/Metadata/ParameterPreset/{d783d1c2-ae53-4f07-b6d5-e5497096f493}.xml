@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{d783d1c2-ae53-4f07-b6d5-e5497096f493}">
+		<property name="name">
+			<value>Zorn Distance</value>
+		</property>
+		<relationship name="folder">
+			<destination>{eb00fd8a-3498-43b9-8847-0b5f6b265eea}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{713d6758-0313-4be7-9a5a-aa1a00ebb30f}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{713d6758-0313-4be7-9a5a-aa1a00ebb30f}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
