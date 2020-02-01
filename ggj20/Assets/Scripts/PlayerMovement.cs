@@ -63,6 +63,7 @@ namespace com.BrutalHack.GlobalGameJam20
                 var raycast = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
                 if (Physics.Raycast(raycast, out var raycastHit))
                 {
+                    Debug.Log(raycastHit.point);
                     aiPathTarget.position = raycastHit.point;
                     aiPath.enabled = true;
                 }

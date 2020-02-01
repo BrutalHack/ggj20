@@ -26,13 +26,13 @@ namespace com.BrutalHack.GlobalGameJam20
             gameObject.SetActive(false);
             done = true;
 
-            _cinematic.afterCinematicFinished += AfterInteraction;
-            await _cinematic.PlayCinematic();
+            _cinematic.onCinematicFinishedEvent += AfterInteraction;
+            await _cinematic.PlayCinematicAsync();
         }
 
         private void AfterInteraction()
         {
-            _cinematic.afterCinematicFinished -= AfterInteraction;
+            _cinematic.onCinematicFinishedEvent -= AfterInteraction;
             _interactionManager.NextPhase();
         }
     }

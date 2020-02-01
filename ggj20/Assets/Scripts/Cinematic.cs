@@ -21,7 +21,7 @@ namespace com.BrutalHack.GlobalGameJam20
 
         public delegate void AfterCinematicFinished();
 
-        public AfterCinematicFinished afterCinematicFinished;
+        public AfterCinematicFinished onCinematicFinishedEvent;
 
         // Start is called before the first frame update
         private void Start()
@@ -32,11 +32,9 @@ namespace com.BrutalHack.GlobalGameJam20
             playerRigidBody = playerMovement.GetComponent<Rigidbody2D>();
         }
 
-        public async Task PlayCinematic()
+        // Update is called once per frame
+        public async Task PlayCinematicAsync()
         {
-            afterCinematicFinished?.Invoke();
-            return;
-            
             cinematicUiController.Show();
             playerMovement.enabled = false;
             playerRigidBody.velocity = Vector2.zero;
@@ -44,7 +42,6 @@ namespace com.BrutalHack.GlobalGameJam20
             currentEvent = StartNextLine();
         }
 
-        // Update is called once per frame
         private async Task FinishCinematic()
         {
             Debug.Log($"Cinematic {model.name} is complete. LinePosition: {nextLinePosition}");
@@ -52,22 +49,23 @@ namespace com.BrutalHack.GlobalGameJam20
             isPlaying = false;
             await Task.Delay(TimeSpan.FromSeconds(cinematicEndDelay));
             playerMovement.enabled = true;
+            onCinematicFinishedEvent?.Invoke();
         }
 
-        void Update()
+        async void Update()
         {
             if (isPlaying)
             {
-                HandleCinematic();
+                await HandleCinematic();
             }
         }
 
-        private void HandleCinematic()
+        private async Task HandleCinematic()
         {
             currentEvent.getPlaybackState(out var result);
             if (result == PLAYBACK_STATE.STOPPED && nextLinePosition == model.texts.Length)
             {
-                FinishCinematic();
+                await FinishCinematic();
             }
             else if (result == PLAYBACK_STATE.STOPPED)
             {
