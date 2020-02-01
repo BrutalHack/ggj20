@@ -11,38 +11,61 @@ namespace com.BrutalHack.GlobalGameJam20
     {
         [SerializeField] private CinematicModel model;
         [SerializeField] private int nextLinePosition;
+        [SerializeField] private PlayerMovement playerMovement;
+        [SerializeField] private Rigidbody2D playerRigidBody;
         private CinematicUiController cinematicUiController;
         private bool isPlaying;
         private EventInstance currentEvent;
+        private const double cinematicStartDelay = 1.5;
+        private const double cinematicEndDelay = 0.5;
+
+        public delegate void AfterCinematicFinished();
+
+        public AfterCinematicFinished onCinematicFinishedEvent;
 
         // Start is called before the first frame update
-        async void Start()
+        private void Start()
         {
             cinematicUiController =
                 GameObject.FindWithTag("CinematicUiController").GetComponent<CinematicUiController>();
-
-            cinematicUiController.Show();
-            await Task.Delay(TimeSpan.FromSeconds(0.5));
-            currentEvent = StartNextLine();
+            playerMovement = FindObjectOfType<PlayerMovement>();
+            playerRigidBody = playerMovement.GetComponent<Rigidbody2D>();
         }
 
         // Update is called once per frame
-        void Update()
+        public async Task PlayCinematicAsync()
+        {
+            cinematicUiController.Show();
+            playerMovement.enabled = false;
+            playerRigidBody.velocity = Vector2.zero;
+            await Task.Delay(TimeSpan.FromSeconds(cinematicStartDelay));
+            currentEvent = StartNextLine();
+        }
+
+        private async Task FinishCinematic()
+        {
+            Debug.Log($"Cinematic {model.name} is complete. LinePosition: {nextLinePosition}");
+            cinematicUiController.Hide();
+            isPlaying = false;
+            await Task.Delay(TimeSpan.FromSeconds(cinematicEndDelay));
+            playerMovement.enabled = true;
+            onCinematicFinishedEvent?.Invoke();
+        }
+
+        async void Update()
         {
             if (isPlaying)
             {
-                HandleCinematic();
+                await HandleCinematic();
             }
         }
 
-        private void HandleCinematic()
+        private async Task HandleCinematic()
         {
             currentEvent.getPlaybackState(out var result);
             if (result == PLAYBACK_STATE.STOPPED && nextLinePosition == model.texts.Length)
             {
-                Debug.Log($"Cinematic {model.name} is complete. LinePosition: {nextLinePosition}");
-                cinematicUiController.Hide();
-                isPlaying = false;
+                await FinishCinematic();
             }
             else if (result == PLAYBACK_STATE.STOPPED)
             {

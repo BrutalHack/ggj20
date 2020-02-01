@@ -23,7 +23,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""type"": ""PassThrough"",
                     ""id"": ""0bc5cd3e-3e3a-460f-8aef-78bd463f3d9f"",
                     ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone"",
                     ""interactions"": """"
                 }
             ],
