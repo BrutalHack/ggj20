@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: event:/Voice/Demo/Die Kuechenuhr 3
   guid: b81fcd434eb4664dab7a13e5cc658f24
   Banks:
-  - {fileID: 8807155704658200970}
+  - {fileID: 1871827079643827498}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -56,7 +56,7 @@ MonoBehaviour:
   Path: event:/Voice/Demo/Die Kuechenuhr 2
   guid: af922625e05c574f90f7b58c0944d056
   Banks:
-  - {fileID: 8807155704658200970}
+  - {fileID: 1871827079643827498}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -79,7 +79,7 @@ MonoBehaviour:
   Path: event:/Voice/Demo/Die Kuechenuhr 5
   guid: 71eb32de62749b41ac79d6170e0e2098
   Banks:
-  - {fileID: 8807155704658200970}
+  - {fileID: 1871827079643827498}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -120,7 +120,7 @@ MonoBehaviour:
   Path: event:/Voice/Demo/Die Kuechenuhr 4
   guid: 6ca30f8da7b0704ab2884a310afd2add
   Banks:
-  - {fileID: 8807155704658200970}
+  - {fileID: 1871827079643827498}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 4826616624015684731}
-  - {fileID: 8807155704658200970}
+  - {fileID: 1871827079643827498}
   EditorEvents:
   - {fileID: 2008629902615097609}
   - {fileID: -1343603491194846626}
@@ -152,10 +152,10 @@ MonoBehaviour:
   - {fileID: 1318595242412041659}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 8807155704658200970}
+  - {fileID: 1871827079643827498}
   StringsBanks:
   - {fileID: 4826616624015684731}
-  stringsBankWriteTime: 637161704692689392
+  stringsBankWriteTime: 637161720820000000
   cacheVersion: 3
 --- !u!114 &219610321555621603
 MonoBehaviour:
@@ -190,14 +190,33 @@ MonoBehaviour:
   Path: event:/Music/Ambient Track
   guid: 0ce188d7367c90479483ffecd4ea5dac
   Banks:
-  - {fileID: 8807155704658200970}
+  - {fileID: 1871827079643827498}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
-  Parameters: []
+  Parameters:
+  - {fileID: 2604830243140456521}
   MinDistance: 0
   MaxDistance: 0
   Length: 82500
+--- !u!114 &1871827079643827498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../ggj20-fmod/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637161720820000000
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &2008629902615097609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +232,7 @@ MonoBehaviour:
   Path: event:/Voice/Demo/Die Kuechenuhr 1
   guid: 59057fc1f6924945a326b2e276546efd
   Banks:
-  - {fileID: 8807155704658200970}
+  - {fileID: 1871827079643827498}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -221,6 +240,23 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 765
+--- !u!114 &2604830243140456521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ambient Track/Voice
+  m_EditorClassIdentifier: 
+  Name: Voice
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &3568611440610816045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,13 +289,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: ../ggj20-fmod/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637161704692689392
+  lastModified: 637161720820000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 954
+    Value: 1002
   - Name: Mobile
-    Value: 954
+    Value: 1002
   Exists: 1
 --- !u!114 &7353941132369079987
 MonoBehaviour:
