@@ -63,7 +63,7 @@ namespace com.BrutalHack.GlobalGameJam20
 
         private void UpdateMouseMovement()
         {
-            if (!Mouse.current.leftButton.wasPressedThisFrame || Camera.main == null)
+            if (Mouse.current == null || !Mouse.current.leftButton.wasPressedThisFrame || Camera.main == null)
             {
                 return;
             }

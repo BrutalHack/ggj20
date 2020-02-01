@@ -16,25 +16,31 @@ namespace com.BrutalHack.GlobalGameJam20
         private CinematicUiController cinematicUiController;
         private bool isPlaying;
         private EventInstance currentEvent;
-        private const double cinematicStartDelay = 1.5;
-        private const double cinematicEndDelay = 0.5;
+        private const double cinematicStartDelay = 2.0;
+        private const double cinematicEndDelay = 1.0;
 
         public delegate void AfterCinematicFinished();
 
         public AfterCinematicFinished onCinematicFinishedEvent;
+        private MusicManager musicManager;
 
         // Start is called before the first frame update
-        private void Start()
+        private async void Start()
         {
             cinematicUiController =
                 GameObject.FindWithTag("CinematicUiController").GetComponent<CinematicUiController>();
             playerMovement = FindObjectOfType<PlayerMovement>();
             playerRigidBody = playerMovement.GetComponent<Rigidbody2D>();
+            musicManager = FindObjectOfType<MusicManager>();
+
+            // await Task.Delay(TimeSpan.FromSeconds(5));
+            // await PlayCinematicAsync();
         }
 
         // Update is called once per frame
         public async Task PlayCinematicAsync()
         {
+            musicManager.SetVoice(true);
             cinematicUiController.Show();
             playerMovement.enabled = false;
             playerRigidBody.velocity = Vector2.zero;
@@ -44,6 +50,7 @@ namespace com.BrutalHack.GlobalGameJam20
 
         private async Task FinishCinematic()
         {
+            musicManager.SetVoice(false);
             Debug.Log($"Cinematic {model.name} is complete. LinePosition: {nextLinePosition}");
             cinematicUiController.Hide();
             isPlaying = false;
