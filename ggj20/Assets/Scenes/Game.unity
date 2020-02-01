@@ -362,6 +362,7 @@ GameObject:
   m_Component:
   - component: {fileID: 418878149}
   - component: {fileID: 418878148}
+  - component: {fileID: 418878150}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -419,6 +420,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &418878150
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418878147}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9cf73e9af15d34d8f8e082a97b2ef302, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &469207311
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,6 +877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmpText: {fileID: 1010095231}
+  cinemachineAnimator: {fileID: 418878150}
 --- !u!1 &1010095229
 GameObject:
   m_ObjectHideFlags: 0
@@ -1726,6 +1747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 11400000, guid: 6f0ea4dde96bf4e79a43e51766d0cbde, type: 2}
   nextLinePosition: 0
+  playerMovement: {fileID: 0}
 --- !u!1 &2132336357
 GameObject:
   m_ObjectHideFlags: 0

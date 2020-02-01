@@ -11,26 +11,42 @@ namespace com.BrutalHack.GlobalGameJam20
     {
         [SerializeField] private CinematicModel model;
         [SerializeField] private int nextLinePosition;
+        [SerializeField] private PlayerMovement playerMovement;
+        [SerializeField] private Rigidbody2D playerRigidBody;
         private CinematicUiController cinematicUiController;
         private bool isPlaying;
         private EventInstance currentEvent;
+        private const double CinematicStartDelay = 1.5;
+        private const double CinematicEndDelay = 0.5;
 
         // Start is called before the first frame update
         async void Start()
         {
             cinematicUiController =
                 GameObject.FindWithTag("CinematicUiController").GetComponent<CinematicUiController>();
-            //await PlayCinematic();
+            playerMovement = FindObjectOfType<PlayerMovement>();
+            playerRigidBody = playerMovement.GetComponent<Rigidbody2D>();
         }
 
         async Task PlayCinematic()
         {
             cinematicUiController.Show();
-            await Task.Delay(TimeSpan.FromSeconds(0.5));
+            playerMovement.enabled = false;
+            playerRigidBody.velocity = Vector2.zero;
+            await Task.Delay(TimeSpan.FromSeconds(CinematicStartDelay));
             currentEvent = StartNextLine();
         }
 
         // Update is called once per frame
+        private async Task FinishCinematic()
+        {
+            Debug.Log($"Cinematic {model.name} is complete. LinePosition: {nextLinePosition}");
+            cinematicUiController.Hide();
+            isPlaying = false;
+            await Task.Delay(TimeSpan.FromSeconds(CinematicEndDelay));
+            playerMovement.enabled = true;
+        }
+
         void Update()
         {
             if (isPlaying)
@@ -44,9 +60,7 @@ namespace com.BrutalHack.GlobalGameJam20
             currentEvent.getPlaybackState(out var result);
             if (result == PLAYBACK_STATE.STOPPED && nextLinePosition == model.texts.Length)
             {
-                Debug.Log($"Cinematic {model.name} is complete. LinePosition: {nextLinePosition}");
-                cinematicUiController.Hide();
-                isPlaying = false;
+                FinishCinematic();
             }
             else if (result == PLAYBACK_STATE.STOPPED)
             {

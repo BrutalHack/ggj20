@@ -14,6 +14,8 @@ namespace com.BrutalHack.GlobalGameJam20
         private PlayerInput _playerInput;
         private Vector2 _movementInput;
         private Vector3 velocity = Vector3.zero;
+        private float moveX;
+        private float moveY;
 
         private void Awake()
         {
@@ -25,9 +27,9 @@ namespace com.BrutalHack.GlobalGameJam20
 
         private void Update()
         {
-            var moveX = _movementInput.x * speed;
-            var moveY = _movementInput.y * speed;
-
+            moveX = _movementInput.x * speed;
+            moveY = _movementInput.y * speed;
+            
             Vector3 targetVelocity = new Vector2(moveX, moveY);
             _rigidBody2D.velocity =
                 Vector3.SmoothDamp(_rigidBody2D.velocity, targetVelocity, ref velocity, movementSmoothing);
