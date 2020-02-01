@@ -1,8 +1,6 @@
-﻿using System;
-using Pathfinding;
+﻿using Pathfinding;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 namespace com.BrutalHack.GlobalGameJam20
 {
@@ -96,7 +94,7 @@ namespace com.BrutalHack.GlobalGameJam20
 
         private void UpdateTouchMovement()
         {
-            if (!Touchscreen.current.wasUpdatedThisFrame || Camera.main == null)
+            if (Touchscreen.current == null || !Touchscreen.current.wasUpdatedThisFrame || Camera.main == null)
             {
                 return;
             }

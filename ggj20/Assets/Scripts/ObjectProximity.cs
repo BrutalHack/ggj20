@@ -4,7 +4,7 @@ namespace com.BrutalHack.GlobalGameJam20
 {
     public class ObjectProximity : MonoBehaviour
     {
-        public ObjectEnum objectEnum;
+        [HideInInspector] public ObjectEnum objectEnum;
 
         private void OnTriggerStay(Collider other)
         {

@@ -6,7 +6,7 @@ namespace com.BrutalHack.GlobalGameJam20
     public class ObjectInteraction : MonoBehaviour
     {
         public ObjectEnum objectEnum;
-        public bool done;
+        [HideInInspector] public bool done;
         private Cinematic _cinematic;
         private InteractionManager _interactionManager;
 
