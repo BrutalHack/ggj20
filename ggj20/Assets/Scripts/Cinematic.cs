@@ -19,8 +19,12 @@ namespace com.BrutalHack.GlobalGameJam20
         private const double cinematicStartDelay = 1.5;
         private const double cinematicEndDelay = 0.5;
 
+        public delegate void AfterCinematicFinished();
+
+        public AfterCinematicFinished afterCinematicFinished;
+
         // Start is called before the first frame update
-        async void Start()
+        private void Start()
         {
             cinematicUiController =
                 GameObject.FindWithTag("CinematicUiController").GetComponent<CinematicUiController>();
@@ -28,8 +32,11 @@ namespace com.BrutalHack.GlobalGameJam20
             playerRigidBody = playerMovement.GetComponent<Rigidbody2D>();
         }
 
-        async Task PlayCinematic()
+        public async Task PlayCinematic()
         {
+            afterCinematicFinished?.Invoke();
+            return;
+            
             cinematicUiController.Show();
             playerMovement.enabled = false;
             playerRigidBody.velocity = Vector2.zero;
