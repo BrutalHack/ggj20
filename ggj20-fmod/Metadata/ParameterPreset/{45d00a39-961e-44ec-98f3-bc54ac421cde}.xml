@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{45d00a39-961e-44ec-98f3-bc54ac421cde}">
+		<property name="name">
+			<value>Voice</value>
+		</property>
+		<relationship name="folder">
+			<destination>{eb00fd8a-3498-43b9-8847-0b5f6b265eea}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{1eb96589-c429-4fde-a967-ec88203368ec}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{1eb96589-c429-4fde-a967-ec88203368ec}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="seekSpeed">
+			<value>0.27000001072883606</value>
+		</property>
+		<relationship name="automators">
+			<destination>{adf2829b-4d43-4bc8-84ef-104cbfab8194}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{adf2829b-4d43-4bc8-84ef-104cbfab8194}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>cursorPosition</value>
+		</property>
+	</object>
+</objects>
