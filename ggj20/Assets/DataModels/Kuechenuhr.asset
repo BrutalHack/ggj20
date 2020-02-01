@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5369bee4b1564a45906af69e3be6bf8c, type: 3}
+  m_Name: Kuechenuhr
+  m_EditorClassIdentifier: 
+  sounds:
+  - event:/Voice/Demo/Die Kuechenuhr 1
+  - event:/Voice/Demo/Die Kuechenuhr 2
+  - event:/Voice/Demo/Die Kuechenuhr 3
+  - event:/Voice/Demo/Die Kuechenuhr 4
+  - event:/Voice/Demo/Die Kuechenuhr 5
+  texts:
+  - "Die K\xFCchenuhr."
+  - Sie sahen ihn schon von weitem auf ihn zukommen, denn er fiel auf.
+  - Er hatte ein ganz altes Gesicht. aber wie er ging... daran sah man, dass er erst
+    zwanzig war.
+  - Er setzte sich mit seinem alten Gesicht zu ihren auf die Bank
+  - und dann zeigte er ihnen, was er in der Hand trug.

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{4c261ff9-1c83-4300-bb0a-8b3d2a82c213}">
+		<property name="assetPath">
+			<value>Die Küchenuhr 2.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>3.5437916666666665</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{cd4a3543-e32f-4503-a384-0e79e9db56b7}</destination>
+		</relationship>
+	</object>
+</objects>
