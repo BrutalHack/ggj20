@@ -37,6 +37,7 @@ namespace com.BrutalHack.GlobalGameJam20
         {
             UpdatePathfinding();
             UpdateMouseMovement();
+            UpdateTouchMovement();
             moveX = _movementInput.x * speed;
             moveY = _movementInput.y * speed;
 
@@ -64,26 +65,44 @@ namespace com.BrutalHack.GlobalGameJam20
 
         private void UpdateMouseMovement()
         {
-            if (Mouse.current.leftButton.wasPressedThisFrame)
+            if (!Mouse.current.leftButton.wasPressedThisFrame || Camera.main == null)
             {
-                if (Camera.main == null)
-                {
-                    return;
-                }
-
-                var mousePosition2d = Mouse.current.position.ReadValue();
-                var screenToWorldPoint = Camera.main.ScreenToWorldPoint(mousePosition2d);
-                var raycastHit2d = Physics2D.Raycast(
-                    new Vector2(screenToWorldPoint.x, screenToWorldPoint.y),
-                    Vector2.zero,
-                    0f);
-                if (raycastHit2d)
-                {
-                    Debug.Log(raycastHit2d.point);
-                    aiPathTarget.position = raycastHit2d.point;
-                    aiPath.enabled = true;
-                }
+                return;
             }
+
+            var mousePosition2d = Mouse.current.position.ReadValue();
+            SetMovementTarget(mousePosition2d);
+        }
+
+        private void SetMovementTarget(Vector2 mousePosition2d)
+        {
+            if (Camera.main == null)
+            {
+                return;
+            }
+
+            var screenToWorldPoint = Camera.main.ScreenToWorldPoint(mousePosition2d);
+            var raycastHit2d = Physics2D.Raycast(
+                new Vector2(screenToWorldPoint.x, screenToWorldPoint.y),
+                Vector2.zero,
+                0f);
+            if (raycastHit2d)
+            {
+                Debug.Log(raycastHit2d.point);
+                aiPathTarget.position = raycastHit2d.point;
+                aiPath.enabled = true;
+            }
+        }
+
+        private void UpdateTouchMovement()
+        {
+            if (!Touchscreen.current.wasUpdatedThisFrame || Camera.main == null)
+            {
+                return;
+            }
+
+            var mousePosition2d = Touchscreen.current.primaryTouch.position.ReadValue();
+            SetMovementTarget(mousePosition2d);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
