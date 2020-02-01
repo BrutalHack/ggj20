@@ -1,4 +1,5 @@
-﻿using Pathfinding;
+﻿using System;
+using Pathfinding;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -29,10 +30,12 @@ namespace com.BrutalHack.GlobalGameJam20
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _playerInput = new PlayerInput();
             _playerInput.PlayerControls.Movement.performed += ctx => _movementInput = ctx.ReadValue<Vector2>();
+            aiPath.enabled = false;
         }
 
         private void Update()
         {
+            UpdatePathfinding();
             UpdateMouseMovement();
             moveX = _movementInput.x * speed;
             moveY = _movementInput.y * speed;
@@ -51,6 +54,14 @@ namespace com.BrutalHack.GlobalGameJam20
             }
         }
 
+        private void UpdatePathfinding()
+        {
+            if (aiPath.enabled && aiPath.reachedEndOfPath)
+            {
+                aiPath.enabled = false;
+            }
+        }
+
         private void UpdateMouseMovement()
         {
             if (Mouse.current.leftButton.wasPressedThisFrame)
@@ -60,13 +71,26 @@ namespace com.BrutalHack.GlobalGameJam20
                     return;
                 }
 
-                var raycast = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-                if (Physics.Raycast(raycast, out var raycastHit))
+                var mousePosition2d = Mouse.current.position.ReadValue();
+                var screenToWorldPoint = Camera.main.ScreenToWorldPoint(mousePosition2d);
+                var raycastHit2d = Physics2D.Raycast(
+                    new Vector2(screenToWorldPoint.x, screenToWorldPoint.y),
+                    Vector2.zero,
+                    0f);
+                if (raycastHit2d)
                 {
-                    Debug.Log(raycastHit.point);
-                    aiPathTarget.position = raycastHit.point;
+                    Debug.Log(raycastHit2d.point);
+                    aiPathTarget.position = raycastHit2d.point;
                     aiPath.enabled = true;
                 }
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.tag.Contains("AStarTarget"))
+            {
+                aiPath.enabled = false;
             }
         }
 
