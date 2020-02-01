@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{024b4360-9418-4913-99ca-53ce0b0e63cc}">
+		<property name="assetPath">
+			<value>Sono_Indie_a.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>54</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{cd4a3543-e32f-4503-a384-0e79e9db56b7}</destination>
+		</relationship>
+	</object>
+</objects>
