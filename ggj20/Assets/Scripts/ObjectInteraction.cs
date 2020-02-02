@@ -33,9 +33,7 @@ namespace com.BrutalHack.GlobalGameJam20
 
         private async void OnInteraction()
         {
-            gameObject.SetActive(false);
             done = true;
-
             _cinematic.onCinematicFinishedEvent += AfterInteraction;
             await _cinematic.PlayCinematicAsync();
         }
@@ -43,6 +41,7 @@ namespace com.BrutalHack.GlobalGameJam20
         private void AfterInteraction()
         {
             _cinematic.onCinematicFinishedEvent -= AfterInteraction;
+            gameObject.SetActive(false);
             _interactionManager.NextPhase();
         }
     }

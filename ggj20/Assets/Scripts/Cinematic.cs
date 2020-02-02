@@ -56,6 +56,7 @@ namespace com.BrutalHack.GlobalGameJam20
             isPlaying = false;
             await Task.Delay(TimeSpan.FromSeconds(cinematicEndDelay));
             playerMovement.enabled = true;
+            
             onCinematicFinishedEvent?.Invoke();
         }
 
