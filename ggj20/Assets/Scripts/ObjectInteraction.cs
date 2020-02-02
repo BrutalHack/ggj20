@@ -1,22 +1,27 @@
-﻿using UnityEngine;
+﻿using FMOD.Studio;
+using FMODUnity;
+using UnityEngine;
 
 namespace com.BrutalHack.GlobalGameJam20
 {
     [RequireComponent(typeof(Cinematic))]
     public class ObjectInteraction : MonoBehaviour
     {
+        [FMODUnity.EventRef] public string wanderingWhispers;
         public Sprite sprite;
         public ObjectEnum objectEnum;
         [HideInInspector] public bool done;
         private Cinematic _cinematic;
         private InteractionManager _interactionManager;
         private SpriteRenderer _spriteRenderer;
+        private EventInstance eventInstance;
 
         private void Awake()
         {
             _cinematic = GetComponent<Cinematic>();
             _interactionManager = GameObject.FindWithTag("InteractionManager").GetComponent<InteractionManager>();
             _spriteRenderer = GetComponentInParent<SpriteRenderer>();
+            eventInstance = RuntimeManager.CreateInstance(wanderingWhispers);
 
             var child = GetComponentInChildren<ObjectProximity>();
             if (child != null)
@@ -33,6 +38,7 @@ namespace com.BrutalHack.GlobalGameJam20
         public void UpdateParentSprite()
         {
             _spriteRenderer.sprite = sprite;
+            eventInstance.start();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -42,6 +48,8 @@ namespace com.BrutalHack.GlobalGameJam20
 
         private async void OnInteraction()
         {
+            eventInstance.setParameterByName("Cinematic", 1);
+            //TODO end sound
             done = true;
             _cinematic.onCinematicFinishedEvent += AfterInteraction;
             await _cinematic.PlayCinematicAsync();

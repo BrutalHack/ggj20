@@ -1117,6 +1117,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: d9ec3a236ed65e9419a942bf533bca77,
         type: 3}
+    - target: {fileID: 6585305703251343207, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
+        type: 3}
+      propertyPath: wanderingWhispers
+      value: event:/Voice/Wandering/Depression/01
+      objectReference: {fileID: 0}
     - target: {fileID: 6585305703251343208, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
         type: 3}
       propertyPath: m_Offset.x
@@ -2460,6 +2465,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: fb656e0e4ada3594bae401544b8eacf7,
         type: 3}
+    - target: {fileID: 6585305703251343207, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
+        type: 3}
+      propertyPath: wanderingWhispers
+      value: event:/Voice/Wandering/Bargaining/01
+      objectReference: {fileID: 0}
     - target: {fileID: 6585305703251343208, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
         type: 3}
       propertyPath: m_Direction
@@ -2801,6 +2811,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: b44c6f5e0cfc3114b9272cbbedae7d3f,
         type: 3}
+    - target: {fileID: 6585305703251343207, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
+        type: 3}
+      propertyPath: wanderingWhispers
+      value: event:/Voice/Wandering/Denial/01
+      objectReference: {fileID: 0}
     - target: {fileID: 6585305703251343208, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
         type: 3}
       propertyPath: m_Offset.y
@@ -4117,6 +4132,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 25954c9ac766cc143a995eb1f951da77,
         type: 3}
+    - target: {fileID: 6585305703251343207, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
+        type: 3}
+      propertyPath: wanderingWhispers
+      value: event:/Voice/Wandering/Anger/01
+      objectReference: {fileID: 0}
     - target: {fileID: 6585305703251343208, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
         type: 3}
       propertyPath: m_Offset.y
