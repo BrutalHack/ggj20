@@ -67,8 +67,9 @@ namespace com.BrutalHack.GlobalGameJam20
             onCinematicFinishedEvent?.Invoke();
         }
 
-        async void Update()
+        private async void Update()
         {
+            Debug.Log("Update IsPlaying: " + isPlaying);
             if (!isPlaying || isDone)
             {
                 return;
@@ -80,11 +81,12 @@ namespace com.BrutalHack.GlobalGameJam20
         private async Task HandleCinematic()
         {
             currentEvent.getPlaybackState(out var result);
+            Debug.Log(result);
             if (result == PLAYBACK_STATE.STOPPED && nextLinePosition == model.texts.Length)
             {
                 await FinishCinematic();
             }
-            else if (result != PLAYBACK_STATE.PLAYING)
+            else if (result == PLAYBACK_STATE.STOPPED)
             {
                 currentEvent = await StartNextLine();
             }
@@ -92,9 +94,10 @@ namespace com.BrutalHack.GlobalGameJam20
 
         private async Task<EventInstance> StartNextLine()
         {
-            isPlaying = false;
             if (nextLinePosition < model.texts.Length)
             {
+                isPlaying = false;
+                Debug.Log("IsPlaying: " + isPlaying);
                 Debug.Log("Line: " + model.texts[nextLinePosition]);
                 if (model.texts[nextLinePosition].Equals("CMD:Center", StringComparison.OrdinalIgnoreCase))
                 {
@@ -148,12 +151,13 @@ namespace com.BrutalHack.GlobalGameJam20
                 var eventInstance = RuntimeManager.CreateInstance(model.sounds[nextLinePosition]);
                 eventInstance.start();
                 cinematicUiController.ShowLine(model.texts[nextLinePosition]);
+                Debug.Log("Played Audio");
                 isPlaying = true;
                 nextLinePosition++;
                 return eventInstance;
             }
 
-            return new EventInstance();
+            throw new InvalidOperationException("Called while not ready " + nextLinePosition);
         }
     }
 }
