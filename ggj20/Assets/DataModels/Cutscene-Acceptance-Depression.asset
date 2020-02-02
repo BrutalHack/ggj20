@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5369bee4b1564a45906af69e3be6bf8c, type: 3}
   m_Name: Cutscene-Acceptance-Depression
   m_EditorClassIdentifier: 
-  sounds: []
-  texts:
-	- (Voices)
-
+  sounds:
+  - event:/Voice/Cutscenes/Accept - Depression/01
+  texts: []

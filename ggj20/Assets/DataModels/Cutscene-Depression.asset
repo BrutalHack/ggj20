@@ -12,20 +12,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5369bee4b1564a45906af69e3be6bf8c, type: 3}
   m_Name: Cutscene-Depression
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - event:/Voice/Cutscenes/Depression/01
+  - event:/Voice/Cutscenes/Depression/02
+  - event:/Voice/Cutscenes/Depression/03
+  - event:/Voice/Cutscenes/Depression/04
+  - event:/Voice/Cutscenes/Depression/05
+  - event:/Voice/Cutscenes/Depression/06
+  - event:/Voice/Cutscenes/Depression/07
+  - event:/Voice/Cutscenes/Depression/08
+  - event:/Voice/Cutscenes/Depression/09
+  - event:/Voice/Cutscenes/Depression/10
+  - event:/Voice/Cutscenes/Depression/11
+  - event:/Voice/Cutscenes/Depression/12
+  - event:/Voice/Cutscenes/Depression/13
+  - event:/Voice/Cutscenes/Depression/14
+  - event:/Voice/Cutscenes/Depression/15
   texts:
   - And now... you've found your place.
   - You can see the whole playground from here.
   - What you conjured from your imagination,
-  -  and what it turned out to be, in the end.
-  - There's a dark, little feeling, worming its way up your spine. 
+  - and what it turned out to be, in the end.
+  - There's a dark, little feeling, worming its way up your spine.
   - Take a deep breath and think about it.
   - You're alone.
   - You are powerless, and not even your dreams will be safe.
   - (Voices)
   - As I said...
   - No use dwelling on particulars.
-  - You do know this will happen again, again and again. 
+  - You do know this will happen again, again and again.
   - Why rebuild? Why keep favorite dolls around?
   - You might think being sad won't help you at all...
   - (Voices)

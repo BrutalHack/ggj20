@@ -12,18 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5369bee4b1564a45906af69e3be6bf8c, type: 3}
   m_Name: Cutscene-Bargaining
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - event:/Voice/Cutscenes/Bargaining/01
+  - event:/Voice/Cutscenes/Bargaining/02
+  - event:/Voice/Cutscenes/Bargaining/03
+  - event:/Voice/Cutscenes/Bargaining/04
+  - event:/Voice/Cutscenes/Bargaining/05
+  - event:/Voice/Cutscenes/Bargaining/06
+  - event:/Voice/Cutscenes/Bargaining/07
+  - event:/Voice/Cutscenes/Bargaining/08
+  - event:/Voice/Cutscenes/Bargaining/09
+  - event:/Voice/Cutscenes/Bargaining/10
+  - event:/Voice/Cutscenes/Bargaining/11
+  - event:/Voice/Cutscenes/Bargaining/12
+  - event:/Voice/Cutscenes/Bargaining/13
   texts:
   - You sit down in the sandbox.
-  - Perhaps sitting is too generous a term. 
-  - Rather: 
+  - Perhaps sitting is too generous a term.
+  - 
   - you fall down, and are graciously stopped by wet, squishy sand.
   - It's a place for creativity.
   - Here is where you can make everything whole again,
   - grain by grain, all on your own.
   - Perhaps you can make it whole again...
   - Right?
-  -	(Voices)
-  - Maybe you should sit down somewhere that hasn't been turned into sludge.
-  - You've tried so many things...
-  - Try sitting down. Think those thoughts.

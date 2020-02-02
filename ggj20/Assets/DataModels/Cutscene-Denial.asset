@@ -13,9 +13,21 @@ MonoBehaviour:
   m_Name: Cutscene-Denial
   m_EditorClassIdentifier: 
   sounds:
-  - event:/Voice/Demo/Die Kuechenuhr 1
-  - event:/Voice/Demo/Die Kuechenuhr 1
-  - event:/Voice/Demo/Die Kuechenuhr 1
+  - event:/Voice/Cutscenes/Denial/01
+  - event:/Voice/Cutscenes/Denial/02
+  - event:/Voice/Cutscenes/Denial/02
+  - event:/Voice/Cutscenes/Denial/03
+  - event:/Voice/Cutscenes/Denial/04
+  - event:/Voice/Cutscenes/Denial/05
+  - event:/Voice/Cutscenes/Denial/06
+  - event:/Voice/Cutscenes/Denial/07
+  - event:/Voice/Cutscenes/Denial/08
+  - event:/Voice/Cutscenes/Denial/09
+  - event:/Voice/Cutscenes/Denial/10
+  - event:/Voice/Cutscenes/Denial/11
+  - event:/Voice/Cutscenes/Denial/12
+  - event:/Voice/Cutscenes/Denial/13
+  - event:/Voice/Cutscenes/Denial/14
   texts:
   - It's bad.
   - CMD:Sun

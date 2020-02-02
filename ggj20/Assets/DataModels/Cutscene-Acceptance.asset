@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5369bee4b1564a45906af69e3be6bf8c, type: 3}
   m_Name: Cutscene-Acceptance
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - event:/Voice/Cutscenes/Acceptance/01
+  - event:/Voice/Cutscenes/Acceptance/02
+  - event:/Voice/Cutscenes/Acceptance/03
+  - event:/Voice/Cutscenes/Acceptance/04
+  - event:/Voice/Cutscenes/Acceptance/05
+  - event:/Voice/Cutscenes/Acceptance/06
+  - event:/Voice/Cutscenes/Acceptance/07
+  - event:/Voice/Cutscenes/Acceptance/08
+  - event:/Voice/Cutscenes/Acceptance/09
   texts:
   - Except...
-  -	(Voices)
-  - CMD:SUN
-  - A shadow lifts.
-  - Clouds are moving. Clouds do not linger.
-  - There is no malice in meteorologics, only movement.
-  - There is something you missed.
-  -	(Voices)
-  - Have another look, little one.
-  - This is your place. You can make it into anything.

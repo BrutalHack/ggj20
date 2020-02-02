@@ -12,23 +12,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5369bee4b1564a45906af69e3be6bf8c, type: 3}
   m_Name: Cutscene-Anger
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - event:/Voice/Cutscenes/Anger/01
+  - event:/Voice/Cutscenes/Anger/02
+  - event:/Voice/Cutscenes/Anger/03
+  - event:/Voice/Cutscenes/Anger/04
+  - event:/Voice/Cutscenes/Anger/05
+  - event:/Voice/Cutscenes/Anger/06
+  - event:/Voice/Cutscenes/Anger/09
+  - event:/Voice/Cutscenes/Anger/08
+  - event:/Voice/Cutscenes/Anger/09
+  - event:/Voice/Cutscenes/Anger/10
+  - event:/Voice/Cutscenes/Anger/11
+  - event:/Voice/Cutscenes/Anger/12
+  - event:/Voice/Cutscenes/Anger/13
+  - event:/Voice/Cutscenes/Anger/14
+  - event:/Voice/Cutscenes/Anger/15
+  - event:/Voice/Cutscenes/Anger/16
+  - event:/Voice/Cutscenes/Anger/17
+  - event:/Voice/Cutscenes/Anger/18
   texts:
   - The doll is broken.
-  - Head's been torn off. 
+  - Head's been torn off.
   - You're sure this is a sign of something.
-  - This was not just a storm, not just clouds and wind, 
+  - This was not just a storm, not just clouds and wind,
   - it was people crashing down, causing harm.
-  -  A calamity, more like.
+  - A calamity, more like.
   - You should get angry about this.
   - It's been done to YOU.
-  - This is injustice, 
+  - This is injustice,
   - and little you never had a chance of doing anything about it.
   - (Voices)
   - No doll anymore.
   - But these are not the only things you had.
   - You had places to play. Places to enjoy.
-  - There's a sandbox... You can't destroy sand. 
+  - There's a sandbox... You can't destroy sand.
   - They could not have taken THAT from you.
   - Find the sandbox... Find a way to reason with yourself.
   - Maybe you can make this look better.
