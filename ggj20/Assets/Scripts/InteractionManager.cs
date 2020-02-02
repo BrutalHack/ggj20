@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace com.BrutalHack.GlobalGameJam20
 {
@@ -81,7 +82,7 @@ namespace com.BrutalHack.GlobalGameJam20
 
         private void OutroFinished()
         {
-            
+            SceneManager.LoadScene("Title");
         }
     }
 }
