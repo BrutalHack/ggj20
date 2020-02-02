@@ -1,17 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace com.BrutalHack.GlobalGameJam20
 {
     public class InteractionManager : MonoBehaviour
     {
+        [SerializeField] private Cinematic introCinematic;
+        [SerializeField] private Cinematic outroCinematic;
         public List<ObjectInteraction> darkObjects;
         public List<ObjectInteraction> lightObjects;
-        private int _darkPhaseCounter = 0;
+        private int _nextDarkPhaseCounter = 0;
         private bool _lightPhase = false;
 
-        private void Awake()
+        private async void Awake()
         {
             if (darkObjects.Any())
             {
@@ -30,21 +34,30 @@ namespace com.BrutalHack.GlobalGameJam20
             {
                 Debug.LogError($"Light objects are missing in {nameof(InteractionManager)}");
             }
-            NextPhase();
+
+            introCinematic.onCinematicFinishedEvent += FirstPhase;
+            await Task.Delay(TimeSpan.FromSeconds(0.2));
+            await introCinematic.PlayCinematicAsync();
         }
 
-        public void NextPhase()
+        private void FirstPhase()
+        {
+            darkObjects[_nextDarkPhaseCounter].gameObject.SetActive(true);
+            _nextDarkPhaseCounter++;
+        }
+
+        public async Task NextPhase()
         {
             if (_lightPhase)
             {
-                EvaluateWinCondition();
+                await EvaluateWinCondition();
                 return;
             }
 
-            if (_darkPhaseCounter < darkObjects.Count)
+            if (_nextDarkPhaseCounter < darkObjects.Count)
             {
-                darkObjects[_darkPhaseCounter].gameObject.SetActive(true);
-                _darkPhaseCounter++;
+                darkObjects[_nextDarkPhaseCounter].gameObject.SetActive(true);
+                _nextDarkPhaseCounter++;
                 return;
             }
 
@@ -52,14 +65,20 @@ namespace com.BrutalHack.GlobalGameJam20
             lightObjects.ForEach(o => o.gameObject.SetActive(true));
         }
 
-        private void EvaluateWinCondition()
+        private async Task EvaluateWinCondition()
         {
             if (lightObjects.Exists(o => !o.done))
             {
                 return;
             }
 
-            Debug.Log("Win logic !!!");
+            outroCinematic.onCinematicFinishedEvent += OutroFinished;
+            await outroCinematic.PlayCinematicAsync();
+        }
+
+        private void OutroFinished()
+        {
+            
         }
     }
 }

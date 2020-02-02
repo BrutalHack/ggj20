@@ -1,6 +1,7 @@
 ﻿using Cinemachine;
 using TMPro;
 using UnityEngine;
+using static System.String;
 
 namespace com.BrutalHack.GlobalGameJam20
 {
@@ -35,6 +36,7 @@ namespace com.BrutalHack.GlobalGameJam20
 
         public void Hide()
         {
+            tmpText.text = Empty;
             animator.ResetTrigger(ShowTrigger);
             animator.SetTrigger(HideTrigger);
             cinemachineAnimator.ResetTrigger(ZoomIn);
@@ -44,6 +46,7 @@ namespace com.BrutalHack.GlobalGameJam20
         public void ShowLine(string modelText)
         {
             tmpText.text = modelText;
+            
         }
     }
 }

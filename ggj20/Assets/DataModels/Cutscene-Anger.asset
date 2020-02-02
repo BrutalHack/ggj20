@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5369bee4b1564a45906af69e3be6bf8c, type: 3}
+  m_Name: Cutscene-Anger
+  m_EditorClassIdentifier: 
+  sounds: []
+  texts:
+  - The doll is broken.
+  - Head's been torn off. 
+  - You're sure this is a sign of something.
+  - This was not just a storm, not just clouds and wind, 
+  - it was people crashing down, causing harm.
+  -  A calamity, more like.
+  - You should get angry about this.
+  - It's been done to YOU.
+  - This is injustice, 
+  - and little you never had a chance of doing anything about it.
+  - (Voices)
+  - No doll anymore.
+  - But these are not the only things you had.
+  - You had places to play. Places to enjoy.
+  - There's a sandbox... You can't destroy sand. 
+  - They could not have taken THAT from you.
+  - Find the sandbox... Find a way to reason with yourself.
+  - Maybe you can make this look better.
