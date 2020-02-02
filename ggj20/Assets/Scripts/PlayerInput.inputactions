@@ -12,6 +12,14 @@
                     "expectedControlType": "Vector2",
                     "processors": "StickDeadzone",
                     "interactions": ""
+                },
+                {
+                    "name": "Exit",
+                    "type": "Button",
+                    "id": "4d5dbbc0-d589-4924-9f14-87f10da15c45",
+                    "expectedControlType": "",
+                    "processors": "StickDeadzone",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -179,6 +187,39 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "5271f778-ae69-4bec-852a-6166b7101590",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "19eb836e-7ddb-449b-acbc-bedc5ac1fb63",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f87ed1e8-49d2-45af-a973-274089af3d36",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

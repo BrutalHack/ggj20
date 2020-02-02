@@ -34,7 +34,14 @@ namespace com.BrutalHack.GlobalGameJam20
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _playerInput = new PlayerInput();
             _playerInput.PlayerControls.Movement.performed += ctx => _movementInput = ctx.ReadValue<Vector2>();
+            _playerInput.PlayerControls.Exit.performed += ctx => ExitGame();
             aiPath.enabled = false;
+        }
+
+        private void ExitGame()
+        {
+            Debug.Log("Exit Game");
+            Application.Quit();
         }
 
         private void Update()
