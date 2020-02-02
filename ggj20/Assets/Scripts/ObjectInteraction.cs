@@ -1,4 +1,5 @@
-﻿using FMOD.Studio;
+﻿using System;
+using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
 
@@ -59,14 +60,65 @@ namespace com.BrutalHack.GlobalGameJam20
                 eventInstance.setParameterByName("Cinematic", 1);
             }
 
-            //TODO end sound
+            var musicManager = FindObjectOfType<MusicManager>();
+
             done = true;
+            switch (objectEnum)
+            {
+                case ObjectEnum.DollLight:
+                    break;
+                case ObjectEnum.DollDark:
+                    musicManager.SetAnger(true);
+                    break;
+                case ObjectEnum.SandboxLight:
+                    break;
+                case ObjectEnum.SandboxDark:
+                    break;
+                case ObjectEnum.PuddleLight:
+                    break;
+                case ObjectEnum.PuddleDark:
+                    break;
+                case ObjectEnum.BenchLight:
+                    break;
+                case ObjectEnum.BenchDark:
+                    musicManager.SetDepression(true);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
             _cinematic.onCinematicFinishedEvent += AfterInteraction;
             await _cinematic.PlayCinematicAsync();
         }
 
         private void AfterInteraction()
         {
+            var musicManager = FindObjectOfType<MusicManager>();
+
+            switch (objectEnum)
+            {
+                case ObjectEnum.DollLight:
+                    break;
+                case ObjectEnum.DollDark:
+                    musicManager.SetAnger(false);
+                    break;
+                case ObjectEnum.SandboxLight:
+                    break;
+                case ObjectEnum.SandboxDark:
+                    break;
+                case ObjectEnum.PuddleLight:
+                    break;
+                case ObjectEnum.PuddleDark:
+                    break;
+                case ObjectEnum.BenchLight:
+                    break;
+                case ObjectEnum.BenchDark:
+                    musicManager.SetDepression(false);
+                    musicManager.SetDepressionEnd(false);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+            musicManager.PlayEndMusic();
             _cinematic.onCinematicFinishedEvent -= AfterInteraction;
             gameObject.SetActive(false);
             _interactionManager.NextPhase();
