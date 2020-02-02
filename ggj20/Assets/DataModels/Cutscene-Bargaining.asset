@@ -28,11 +28,15 @@ MonoBehaviour:
   - event:/Voice/Cutscenes/Bargaining/13
   texts:
   - You sit down in the sandbox.
-  - Perhaps sitting is too generous a term.
-  - 
+  - Perhaps sitting is too generous a term. 
+  - Rather: 
   - you fall down, and are graciously stopped by wet, squishy sand.
   - It's a place for creativity.
   - Here is where you can make everything whole again,
   - grain by grain, all on your own.
   - Perhaps you can make it whole again...
   - Right?
+  - (Voice)
+  - Maybe you should sit down somewhere that hasn't been turned into sludge.
+  - You've tried so many things...
+  - Try sitting down. Think those thoughts.

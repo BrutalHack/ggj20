@@ -15,7 +15,6 @@ MonoBehaviour:
   sounds:
   - event:/Voice/Cutscenes/Denial/01
   - event:/Voice/Cutscenes/Denial/02
-  - event:/Voice/Cutscenes/Denial/02
   - event:/Voice/Cutscenes/Denial/03
   - event:/Voice/Cutscenes/Denial/04
   - event:/Voice/Cutscenes/Denial/05
@@ -30,7 +29,6 @@ MonoBehaviour:
   - event:/Voice/Cutscenes/Denial/14
   texts:
   - It's bad.
-  - CMD:Sun
   - You can barely see yourself,
   - or rather, what you imagined yourself to be in this place.
   - The water is cloudy.
