@@ -21,7 +21,10 @@ namespace com.BrutalHack.GlobalGameJam20
             _cinematic = GetComponent<Cinematic>();
             _interactionManager = GameObject.FindWithTag("InteractionManager").GetComponent<InteractionManager>();
             _spriteRenderer = GetComponentInParent<SpriteRenderer>();
-            eventInstance = RuntimeManager.CreateInstance(wanderingWhispers);
+            if (wanderingWhispers.Length > 0)
+            {
+                eventInstance = RuntimeManager.CreateInstance(wanderingWhispers);
+            }
 
             var child = GetComponentInChildren<ObjectProximity>();
             if (child != null)
@@ -38,7 +41,10 @@ namespace com.BrutalHack.GlobalGameJam20
         public void UpdateParentSprite()
         {
             _spriteRenderer.sprite = sprite;
-            eventInstance.start();
+            if (wanderingWhispers.Length > 0)
+            {
+                eventInstance.start();
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -48,7 +54,11 @@ namespace com.BrutalHack.GlobalGameJam20
 
         private async void OnInteraction()
         {
-            eventInstance.setParameterByName("Cinematic", 1);
+            if (wanderingWhispers.Length > 0)
+            {
+                eventInstance.setParameterByName("Cinematic", 1);
+            }
+
             //TODO end sound
             done = true;
             _cinematic.onCinematicFinishedEvent += AfterInteraction;

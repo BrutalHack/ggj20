@@ -46,6 +46,7 @@ namespace com.BrutalHack.GlobalGameJam20
         // Update is called once per frame
         public async Task PlayCinematicAsync()
         {
+            playerMovement.ForceIdle();
             musicManager.SetVoice(true);
             cinematicUiController.Show();
             playerMovement.enabled = false;

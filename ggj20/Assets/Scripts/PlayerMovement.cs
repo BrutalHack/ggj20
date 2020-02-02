@@ -217,5 +217,13 @@ namespace com.BrutalHack.GlobalGameJam20
                 }
             }
         }
+
+        public void ForceIdle()
+        {
+            _idle = true;
+                
+            _animator.SetBool("Idle", _idle);
+            _animator.SetTrigger(_watchDirection.ToString());
+        }
     }
 }
