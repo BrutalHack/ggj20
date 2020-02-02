@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace com.BrutalHack.GlobalGameJam20
@@ -11,7 +12,7 @@ namespace com.BrutalHack.GlobalGameJam20
         private int _darkPhaseCounter = 0;
         private bool _lightPhase = false;
 
-        private void Awake()
+        private async void Awake()
         {
             if (darkObjects.Any())
             {
@@ -30,14 +31,14 @@ namespace com.BrutalHack.GlobalGameJam20
             {
                 Debug.LogError($"Light objects are missing in {nameof(InteractionManager)}");
             }
-            NextPhase();
+            await NextPhase();
         }
 
-        public void NextPhase()
+        public async Task NextPhase()
         {
             if (_lightPhase)
             {
-                EvaluateWinCondition();
+                await EvaluateWinCondition();
                 return;
             }
 
@@ -52,14 +53,22 @@ namespace com.BrutalHack.GlobalGameJam20
             lightObjects.ForEach(o => o.gameObject.SetActive(true));
         }
 
-        private void EvaluateWinCondition()
+        private async Task EvaluateWinCondition()
         {
             if (lightObjects.Exists(o => !o.done))
             {
                 return;
             }
 
-            Debug.Log("Win logic !!!");
+            var cinematic = GetComponent<Cinematic>();
+            cinematic.onCinematicFinishedEvent += OutroFinished;
+            await cinematic.PlayCinematicAsync();
+
+        }
+
+        private void OutroFinished()
+        {
+            //TODO Make Outro here
         }
     }
 }
