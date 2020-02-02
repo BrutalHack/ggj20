@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{22081e27-c040-4cf4-85dd-1218bc55c3c8}">
+		<property name="name">
+			<value>Cinematic</value>
+		</property>
+		<relationship name="folder">
+			<destination>{eb00fd8a-3498-43b9-8847-0b5f6b265eea}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{282c6019-0076-4f0f-99f0-2c773d7fa7c2}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{282c6019-0076-4f0f-99f0-2c773d7fa7c2}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="seekSpeed">
+			<value>0.24000000953674316</value>
+		</property>
+	</object>
+</objects>
