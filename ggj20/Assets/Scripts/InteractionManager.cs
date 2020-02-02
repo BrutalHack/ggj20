@@ -43,6 +43,7 @@ namespace com.BrutalHack.GlobalGameJam20
         private void FirstPhase()
         {
             darkObjects[_nextDarkPhaseCounter].gameObject.SetActive(true);
+            darkObjects[_nextDarkPhaseCounter].UpdateParentSprite();
             _nextDarkPhaseCounter++;
         }
 
@@ -57,12 +58,14 @@ namespace com.BrutalHack.GlobalGameJam20
             if (_nextDarkPhaseCounter < darkObjects.Count)
             {
                 darkObjects[_nextDarkPhaseCounter].gameObject.SetActive(true);
+                darkObjects[_nextDarkPhaseCounter].UpdateParentSprite();
                 _nextDarkPhaseCounter++;
                 return;
             }
 
             _lightPhase = true;
             lightObjects.ForEach(o => o.gameObject.SetActive(true));
+            lightObjects.ForEach(o => o.UpdateParentSprite());
         }
 
         private async Task EvaluateWinCondition()
