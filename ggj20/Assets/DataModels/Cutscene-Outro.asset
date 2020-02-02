@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Cutscene-Outro
   m_EditorClassIdentifier: 
   sounds:
-  - 
+  - event:/Voice/Cutscenes/Outro/01
+  - event:/Voice/Cutscenes/Outro/02
+  - event:/Voice/Cutscenes/Outro/03
+  - event:/Voice/Cutscenes/Outro/04
+  - event:/Voice/Cutscenes/Outro/01
+  - event:/Voice/Cutscenes/Outro/01
   texts:
   - Things do not have to be as bad as they seem.
   - Storms come and go, but nothing's beyond repair.

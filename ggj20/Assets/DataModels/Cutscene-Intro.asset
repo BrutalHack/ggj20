@@ -13,22 +13,23 @@ MonoBehaviour:
   m_Name: Cutscene-Intro
   m_EditorClassIdentifier: 
   sounds:
-  - event:/Voice/Demo/Die Kuechenuhr 1
-  - event:/Voice/Demo/Die Kuechenuhr 1
-  - event:/Voice/Demo/Die Kuechenuhr 1
-  - event:/Voice/Demo/Die Kuechenuhr 1
-  - event:/Voice/Demo/Die Kuechenuhr 1
-  - event:/Voice/Demo/Die Kuechenuhr 1
-  - event:/Voice/Demo/Die Kuechenuhr 1
-  - event:/Voice/Demo/Die Kuechenuhr 1
-  - event:/Voice/Demo/Die Kuechenuhr 1
-  - event:/Voice/Demo/Die Kuechenuhr 1
-  - event:/Voice/Demo/Die Kuechenuhr 1
-  - event:/Voice/Demo/Die Kuechenuhr 1
-  - event:/Voice/Demo/Die Kuechenuhr 1
-  - event:/Voice/Demo/Die Kuechenuhr 1
-  - event:/Voice/Demo/Die Kuechenuhr 1
-  - event:/Voice/Demo/Die Kuechenuhr 1
+  - event:/Voice/Cutscenes/Intro/01
+  - event:/Voice/Cutscenes/Intro/02
+  - event:/Voice/Cutscenes/Intro/03
+  - event:/Voice/Cutscenes/Intro/04
+  - event:/Voice/Cutscenes/Intro/05
+  - event:/Voice/Cutscenes/Intro/06
+  - event:/Voice/Cutscenes/Intro/06
+  - event:/Voice/Cutscenes/Intro/07
+  - event:/Voice/Cutscenes/Intro/08
+  - event:/Voice/Cutscenes/Intro/09
+  - event:/Voice/Cutscenes/Intro/10
+  - event:/Voice/Cutscenes/Intro/11
+  - event:/Voice/Cutscenes/Intro/12
+  - event:/Voice/Cutscenes/Intro/13
+  - event:/Voice/Cutscenes/Intro/14
+  - event:/Voice/Cutscenes/Intro/15
+
   texts:
   - There has been a terrible storm.
   - It's no use to dwell on... particulars. 
