@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{0fefaa38-35e0-481b-b932-dd15c2051414}">
+		<property name="assetPath">
+			<value>05-calm down.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>7.5232708333333331</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{cd4a3543-e32f-4503-a384-0e79e9db56b7}</destination>
+		</relationship>
+	</object>
+</objects>

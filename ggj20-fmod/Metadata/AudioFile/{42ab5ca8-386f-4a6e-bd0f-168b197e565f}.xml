@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{42ab5ca8-386f-4a6e-bd0f-168b197e565f}">
+		<property name="assetPath">
+			<value>narrator cutscene doll 2.ogg</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>26.020687500000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{cd4a3543-e32f-4503-a384-0e79e9db56b7}</destination>
+		</relationship>
+	</object>
+</objects>
