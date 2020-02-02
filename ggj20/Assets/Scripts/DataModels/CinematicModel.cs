@@ -12,8 +12,8 @@ namespace com.BrutalHack.GlobalGameJam20.DataModels
         {
             if (sounds.Length != texts.Length)
             {
-                Debug.LogError(
-                    $"sounds and texts size mismatch: sounds size: {sounds.Length}; texts size: {sounds.Length}", this);
+                // Debug.LogError(
+                //     $"sounds and texts size mismatch: sounds size: {sounds.Length}; texts size: {sounds.Length}", this);
             }
         }
     }

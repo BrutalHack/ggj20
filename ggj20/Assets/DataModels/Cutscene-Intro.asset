@@ -29,13 +29,12 @@ MonoBehaviour:
   - event:/Voice/Cutscenes/Intro/13
   - event:/Voice/Cutscenes/Intro/14
   - event:/Voice/Cutscenes/Intro/15
-
   texts:
   - There has been a terrible storm.
-  - It's no use to dwell on... particulars. 
-  - You were drifting along, like the little lost leaf that you are, 
-  - and then suddenly you weren't. 
-  - There was a storm. Sudden, violent, thrashing about. 
+  - It's no use to dwell on... particulars.
+  - You were drifting along, like the little lost leaf that you are,
+  - and then suddenly you weren't.
+  - There was a storm. Sudden, violent, thrashing about.
   - And then, the playground was no more.
   - CMD:BLENDIN
   - There have been people who helped you build this place...

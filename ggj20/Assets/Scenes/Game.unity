@@ -199,6 +199,12 @@ PrefabInstance:
       propertyPath: objectEnum
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6585305703251343207, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
+        type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed27cc76b7473b4b8080a9733076c00,
+        type: 3}
     - target: {fileID: 6585305703251343208, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
         type: 3}
       propertyPath: m_Offset.x
@@ -1104,6 +1110,17 @@ PrefabInstance:
         type: 3}
       propertyPath: objectEnum
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6585305703251343207, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
+        type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d9ec3a236ed65e9419a942bf533bca77,
+        type: 3}
+    - target: {fileID: 6585305703251343207, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
+        type: 3}
+      propertyPath: wanderingWhispers
+      value: event:/Voice/Wandering/Depression/01
       objectReference: {fileID: 0}
     - target: {fileID: 6585305703251343208, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
         type: 3}
@@ -2076,6 +2093,12 @@ PrefabInstance:
       propertyPath: objectEnum
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6585305703251343207, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
+        type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d38b5d6fbba4a0841bff949bf08636f4,
+        type: 3}
     - target: {fileID: 6585305703251343208, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
         type: 3}
       propertyPath: m_Offset.x
@@ -2302,6 +2325,12 @@ PrefabInstance:
       propertyPath: objectEnum
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6585305703251343207, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
+        type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a0891778fce5f4e4982a61136d2c2689,
+        type: 3}
     - target: {fileID: 6585305703251343208, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
         type: 3}
       propertyPath: m_Offset.x
@@ -2429,6 +2458,17 @@ PrefabInstance:
         type: 3}
       propertyPath: objectEnum
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6585305703251343207, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
+        type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fb656e0e4ada3594bae401544b8eacf7,
+        type: 3}
+    - target: {fileID: 6585305703251343207, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
+        type: 3}
+      propertyPath: wanderingWhispers
+      value: event:/Voice/Wandering/Bargaining/01
       objectReference: {fileID: 0}
     - target: {fileID: 6585305703251343208, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
         type: 3}
@@ -2764,6 +2804,17 @@ PrefabInstance:
         type: 3}
       propertyPath: objectEnum
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6585305703251343207, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
+        type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b44c6f5e0cfc3114b9272cbbedae7d3f,
+        type: 3}
+    - target: {fileID: 6585305703251343207, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
+        type: 3}
+      propertyPath: wanderingWhispers
+      value: event:/Voice/Wandering/Denial/01
       objectReference: {fileID: 0}
     - target: {fileID: 6585305703251343208, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
         type: 3}
@@ -3190,12 +3241,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 90
-  m_Sprite: {fileID: 21300000, guid: baa6c3702e2955c48af1616bfb33af16, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 25954c9ac766cc143a995eb1f951da77, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10.85, y: 6.91}
+  m_Size: {x: 3.49, y: 2.14}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -3444,6 +3495,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: da6a5efadbe2549988cb9a321285a2f0,
         type: 2}
+    - target: {fileID: 6585305703251343207, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
+        type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 11ce657b5d4dc4e4e816c597b775140c,
+        type: 3}
     - target: {fileID: 6585305703251343208, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
         type: 3}
       propertyPath: m_Offset.x
@@ -4068,6 +4125,17 @@ PrefabInstance:
         type: 3}
       propertyPath: objectEnum
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6585305703251343207, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
+        type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 25954c9ac766cc143a995eb1f951da77,
+        type: 3}
+    - target: {fileID: 6585305703251343207, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
+        type: 3}
+      propertyPath: wanderingWhispers
+      value: event:/Voice/Wandering/Anger/01
       objectReference: {fileID: 0}
     - target: {fileID: 6585305703251343208, guid: 5ba13b3463f04c34bb7ecb8e81abe1f9,
         type: 3}
