@@ -6,6 +6,7 @@ namespace com.BrutalHack.GlobalGameJam20
 {
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(SpriteRenderer))]
+    [RequireComponent(typeof(Animator))]
     public class PlayerMovement : MonoBehaviour
     {
         [Range(1, 10)] [SerializeField] private int speed = 4;
@@ -14,6 +15,7 @@ namespace com.BrutalHack.GlobalGameJam20
 
         private AIPath aiPath;
         private Rigidbody2D _rigidBody2D;
+        private Animator _animator;
         private SpriteRenderer _spriteRenderer;
         private PlayerInput _playerInput;
         private Vector2 _movementInput;
@@ -28,6 +30,7 @@ namespace com.BrutalHack.GlobalGameJam20
         {
             aiPath = GetComponent<AIPath>();
             _rigidBody2D = GetComponent<Rigidbody2D>();
+            _animator = GetComponent<Animator>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _playerInput = new PlayerInput();
             _playerInput.PlayerControls.Movement.performed += ctx => _movementInput = ctx.ReadValue<Vector2>();
@@ -147,6 +150,9 @@ namespace com.BrutalHack.GlobalGameJam20
             {
                 _watchDirection = newWatchDirection;
                 _idle = newIdle;
+                
+                _animator.SetBool("Idle", _idle);
+                _animator.SetTrigger(_watchDirection.ToString());
 
                 Debug.Log($"{_watchDirection} {_idle}");
             }
