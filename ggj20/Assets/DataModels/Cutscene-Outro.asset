@@ -14,5 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds: []
   texts:
-  - Text here
-  - "Umlaut \xF6"
+  - Things do not have to be as bad as they seem.
+  - Storms come and go, but nothing's beyond repair.
+  - This is YOUR playground.
+  - (Voices)
+  - CMD:Outro
+  - CMD:Center

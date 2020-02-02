@@ -46,6 +46,7 @@ namespace com.BrutalHack.GlobalGameJam20
         public void ShowLine(string modelText)
         {
             tmpText.text = modelText;
+            
         }
     }
 }

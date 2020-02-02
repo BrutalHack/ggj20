@@ -6,6 +6,8 @@ TagManager:
   tags:
   - CinematicUiController
   - InteractionManager
+  - AStarTarget
+  - Sky
   layers:
   - Default
   - TransparentFX

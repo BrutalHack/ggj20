@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds: []
   texts:
-  - Text here
-  - "Umlaut \xF6"
+	- (Voices)
+

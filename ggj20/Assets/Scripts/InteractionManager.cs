@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -7,9 +8,11 @@ namespace com.BrutalHack.GlobalGameJam20
 {
     public class InteractionManager : MonoBehaviour
     {
+        [SerializeField] private Cinematic introCinematic;
+        [SerializeField] private Cinematic outroCinematic;
         public List<ObjectInteraction> darkObjects;
         public List<ObjectInteraction> lightObjects;
-        private int _darkPhaseCounter = 0;
+        private int _nextDarkPhaseCounter = 0;
         private bool _lightPhase = false;
 
         private async void Awake()
@@ -31,7 +34,16 @@ namespace com.BrutalHack.GlobalGameJam20
             {
                 Debug.LogError($"Light objects are missing in {nameof(InteractionManager)}");
             }
-            await NextPhase();
+
+            introCinematic.onCinematicFinishedEvent += FirstPhase;
+            await Task.Delay(TimeSpan.FromSeconds(0.2));
+            await introCinematic.PlayCinematicAsync();
+        }
+
+        private void FirstPhase()
+        {
+            darkObjects[_nextDarkPhaseCounter].gameObject.SetActive(true);
+            _nextDarkPhaseCounter++;
         }
 
         public async Task NextPhase()
@@ -42,10 +54,10 @@ namespace com.BrutalHack.GlobalGameJam20
                 return;
             }
 
-            if (_darkPhaseCounter < darkObjects.Count)
+            if (_nextDarkPhaseCounter < darkObjects.Count)
             {
-                darkObjects[_darkPhaseCounter].gameObject.SetActive(true);
-                _darkPhaseCounter++;
+                darkObjects[_nextDarkPhaseCounter].gameObject.SetActive(true);
+                _nextDarkPhaseCounter++;
                 return;
             }
 
@@ -60,15 +72,13 @@ namespace com.BrutalHack.GlobalGameJam20
                 return;
             }
 
-            var cinematic = GetComponent<Cinematic>();
-            cinematic.onCinematicFinishedEvent += OutroFinished;
-            await cinematic.PlayCinematicAsync();
-
+            outroCinematic.onCinematicFinishedEvent += OutroFinished;
+            await outroCinematic.PlayCinematicAsync();
         }
 
         private void OutroFinished()
         {
-            //TODO Make Outro here
+            
         }
     }
 }

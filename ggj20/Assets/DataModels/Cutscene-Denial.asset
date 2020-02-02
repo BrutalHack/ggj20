@@ -12,7 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5369bee4b1564a45906af69e3be6bf8c, type: 3}
   m_Name: Cutscene-Denial
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - event:/Voice/Demo/Die Kuechenuhr 1
+  - event:/Voice/Demo/Die Kuechenuhr 1
+  - event:/Voice/Demo/Die Kuechenuhr 1
   texts:
-  - Text here
-  - "Umlaut \xF6"
+  - It's bad.
+  - CMD:Sun
+  - You can barely see yourself,
+  - or rather, what you imagined yourself to be in this place.
+  - The water is cloudy.
+  - You're hidden, and more than a little lost.
+  - That puddle is a remnant of the storm that passed over the playground.
+  - It's no use denying it...
+  - The clear waters were disturbed. You can no longer see yourself.
+  - Someone did this to you.
+  - You've been betrayed.
+  - (Voices)
+  - See what you can save, little one.
+  - You had a doll, didn't you? Dolls are good.
+  - Find it... Let it calm you down

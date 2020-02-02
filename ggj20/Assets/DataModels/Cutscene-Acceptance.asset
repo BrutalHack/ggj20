@@ -14,5 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds: []
   texts:
-  - Text here
-  - "Umlaut \xF6"
+  - Except...
+  -	(Voices)
+  - CMD:SUN
+  - A shadow lifts.
+  - Clouds are moving. Clouds do not linger.
+  - There is no malice in meteorologics, only movement.
+  - There is something you missed.
+  -	(Voices)
+  - Have another look, little one.
+  - This is your place. You can make it into anything.

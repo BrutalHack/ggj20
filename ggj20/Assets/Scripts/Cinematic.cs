@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using com.BrutalHack.GlobalGameJam20.DataModels;
 using FMOD.Studio;
 using FMODUnity;
+using Pathfinding;
 using UnityEngine;
 
 namespace com.BrutalHack.GlobalGameJam20
@@ -11,8 +12,9 @@ namespace com.BrutalHack.GlobalGameJam20
     {
         [SerializeField] private CinematicModel model;
         [SerializeField] private int nextLinePosition;
-        [SerializeField] private PlayerMovement playerMovement;
-        [SerializeField] private Rigidbody2D playerRigidBody;
+        private PlayerMovement playerMovement;
+        private Rigidbody2D playerRigidBody;
+        private AIPath playerAiPath;
         private CinematicUiController cinematicUiController;
         private bool isPlaying;
         private EventInstance currentEvent;
@@ -23,18 +25,22 @@ namespace com.BrutalHack.GlobalGameJam20
 
         public AfterCinematicFinished onCinematicFinishedEvent;
         private MusicManager musicManager;
+        private static readonly int Intro = Animator.StringToHash("Intro");
+        private static readonly int Outro = Animator.StringToHash("Outro");
+        private static readonly int Sun = Animator.StringToHash("Sun");
+        private Animator skyAnimator;
+        private bool startNextLine;
+        [SerializeField] private bool isDone;
 
-        // Start is called before the first frame update
-        private async void Start()
+        private void Awake()
         {
             cinematicUiController =
                 GameObject.FindWithTag("CinematicUiController").GetComponent<CinematicUiController>();
             playerMovement = FindObjectOfType<PlayerMovement>();
             playerRigidBody = playerMovement.GetComponent<Rigidbody2D>();
+            playerAiPath = playerMovement.GetComponent<AIPath>();
             musicManager = FindObjectOfType<MusicManager>();
-
-            // await Task.Delay(TimeSpan.FromSeconds(5));
-            // await PlayCinematicAsync();
+            skyAnimator = GameObject.FindWithTag("Sky").GetComponent<Animator>();
         }
 
         // Update is called once per frame
@@ -45,7 +51,7 @@ namespace com.BrutalHack.GlobalGameJam20
             playerMovement.enabled = false;
             playerRigidBody.velocity = Vector2.zero;
             await Task.Delay(TimeSpan.FromSeconds(cinematicStartDelay));
-            currentEvent = StartNextLine();
+            isPlaying = true;
         }
 
         private async Task FinishCinematic()
@@ -53,19 +59,22 @@ namespace com.BrutalHack.GlobalGameJam20
             musicManager.SetVoice(false);
             Debug.Log($"Cinematic {model.name} is complete. LinePosition: {nextLinePosition}");
             cinematicUiController.Hide();
+            isDone = true;
             isPlaying = false;
             await Task.Delay(TimeSpan.FromSeconds(cinematicEndDelay));
             playerMovement.enabled = true;
-            
+
             onCinematicFinishedEvent?.Invoke();
         }
 
         async void Update()
         {
-            if (isPlaying)
+            if (!isPlaying || isDone)
             {
-                await HandleCinematic();
+                return;
             }
+
+            await HandleCinematic();
         }
 
         private async Task HandleCinematic()
@@ -75,16 +84,67 @@ namespace com.BrutalHack.GlobalGameJam20
             {
                 await FinishCinematic();
             }
-            else if (result == PLAYBACK_STATE.STOPPED)
+            else if (result != PLAYBACK_STATE.PLAYING)
             {
-                currentEvent = StartNextLine();
+                currentEvent = await StartNextLine();
             }
         }
 
-        private EventInstance StartNextLine()
+        private async Task<EventInstance> StartNextLine()
         {
+            isPlaying = false;
             if (nextLinePosition < model.texts.Length)
             {
+                Debug.Log("Line: " + model.texts[nextLinePosition]);
+                if (model.texts[nextLinePosition].Equals("CMD:Center", StringComparison.OrdinalIgnoreCase))
+                {
+                    var aStarTarget = GameObject.FindWithTag("AStarTarget").transform;
+                    aStarTarget.position = new Vector3(0, -3, 0);
+                    playerAiPath.enabled = true;
+                    await Task.Delay(TimeSpan.FromSeconds(3.0));
+                    playerAiPath.enabled = false;
+                    isPlaying = true;
+                    nextLinePosition++;
+                    return new EventInstance();
+                }
+
+                if (model.texts[nextLinePosition].Equals("CMD:Sun", StringComparison.OrdinalIgnoreCase))
+                {
+                    isPlaying = false;
+                    skyAnimator.ResetTrigger(Intro);
+                    skyAnimator.ResetTrigger(Outro);
+                    skyAnimator.SetTrigger(Sun);
+                    isPlaying = true;
+                    nextLinePosition++;
+                    return new EventInstance();
+                }
+
+                if (model.texts[nextLinePosition].Equals("CMD:Blendin", StringComparison.OrdinalIgnoreCase))
+                {
+                    isPlaying = false;
+                    skyAnimator.SetTrigger(Intro);
+                    skyAnimator.ResetTrigger(Outro);
+                    skyAnimator.ResetTrigger(Sun);
+                    await Task.Delay(TimeSpan.FromSeconds(1.0));
+                    isPlaying = true;
+                    nextLinePosition++;
+                    return new EventInstance();
+                }
+
+                if (model.texts[nextLinePosition].Equals("CMD:Outro", StringComparison.OrdinalIgnoreCase))
+                {
+                    isPlaying = false;
+                    skyAnimator.ResetTrigger(Intro);
+                    skyAnimator.SetTrigger(Outro);
+                    skyAnimator.ResetTrigger(Sun);
+                    await Task.Delay(TimeSpan.FromSeconds(4.0));
+                    //TODO Roll credits
+                    //Remain off
+                    isPlaying = false;
+                    nextLinePosition++;
+                    return new EventInstance();
+                }
+
                 var eventInstance = RuntimeManager.CreateInstance(model.sounds[nextLinePosition]);
                 eventInstance.start();
                 cinematicUiController.ShowLine(model.texts[nextLinePosition]);
@@ -93,8 +153,7 @@ namespace com.BrutalHack.GlobalGameJam20
                 return eventInstance;
             }
 
-            throw new InvalidOperationException(
-                $"lineposition {nextLinePosition} is greater than {model.name} length {model.sounds.Length}");
+            return new EventInstance();
         }
     }
 }
