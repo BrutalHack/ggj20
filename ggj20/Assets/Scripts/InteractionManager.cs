@@ -11,6 +11,7 @@ namespace com.BrutalHack.GlobalGameJam20
     {
         [SerializeField] private Cinematic introCinematic;
         [SerializeField] private Cinematic outroCinematic;
+        [SerializeField] private Cinematic acceptanceCinematic;
         public List<ObjectInteraction> darkObjects;
         public List<ObjectInteraction> lightObjects;
         private int _nextDarkPhaseCounter = 0;
@@ -63,6 +64,8 @@ namespace com.BrutalHack.GlobalGameJam20
                 _nextDarkPhaseCounter++;
                 return;
             }
+            
+            await acceptanceCinematic.PlayCinematicAsync();
 
             _lightPhase = true;
             lightObjects.ForEach(o => o.gameObject.SetActive(true));
