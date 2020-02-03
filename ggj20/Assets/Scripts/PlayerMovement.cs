@@ -15,26 +15,21 @@ namespace com.BrutalHack.GlobalGameJam20
 
         private AIPath aiPath;
         private Rigidbody2D _rigidBody2D;
-        private Animator _animator;
-        private SpriteRenderer _spriteRenderer;
         private PlayerInput _playerInput;
         private Vector2 _movementInput;
         private Vector3 velocity = Vector3.zero;
         private float moveX;
         private float moveY;
-        private Vector2 _lastFramePosition = Vector2.zero;
-        private WatchDirection _watchDirection = WatchDirection.SouthWest;
-        private bool _idle = true;
+        
 
         private void Awake()
         {
             aiPath = GetComponent<AIPath>();
             _rigidBody2D = GetComponent<Rigidbody2D>();
-            _animator = GetComponent<Animator>();
-            _spriteRenderer = GetComponent<SpriteRenderer>();
             _playerInput = new PlayerInput();
             _playerInput.PlayerControls.Movement.performed += ctx => _movementInput = ctx.ReadValue<Vector2>();
             _playerInput.PlayerControls.Exit.performed += ctx => ExitGame();
+            _playerInput.Enable();
             aiPath.enabled = false;
         }
 
@@ -49,6 +44,7 @@ namespace com.BrutalHack.GlobalGameJam20
             UpdatePathfinding();
             UpdateMouseMovement();
             UpdateTouchMovement();
+            Debug.Log("Movement" + _movementInput.x);
             moveX = _movementInput.x * speed;
             moveY = _movementInput.y * speed;
 
@@ -65,7 +61,6 @@ namespace com.BrutalHack.GlobalGameJam20
                 _spriteRenderer.flipX = false;
             }*/
 
-            UpdateLookDirection();
         }
 
         private void UpdatePathfinding()
@@ -128,109 +123,19 @@ namespace com.BrutalHack.GlobalGameJam20
 
         private void OnEnable()
         {
-            _playerInput?.Enable();
+            // _playerInput?.Enable();
         }
 
         private void OnDisable()
         {
-            _playerInput?.Disable();
+            // _playerInput?.Disable();
         }
 
-        /// <summary>
-        ///      +Y
-        ///       |
-        /// -X ---+---- +X
-        ///       |
-        ///      -Y
-        /// </summary>
-        private void UpdateLookDirection()
-        {
-            var currentPosition = new Vector2(transform.position.x, transform.position.y);
-            var direction = currentPosition - _lastFramePosition;
-            var newWatchDirection = CalculateWatchDirection(direction);
-            var newIdle = IsIdle();
-
-            _lastFramePosition = currentPosition;
-
-            if (_watchDirection != newWatchDirection ||
-                _idle != newIdle)
-            {
-                _watchDirection = newWatchDirection;
-                _idle = newIdle;
-                
-                _animator.SetBool("Idle", _idle);
-                _animator.SetTrigger(_watchDirection.ToString());
-
-                Debug.Log($"{_watchDirection} {_idle}");
-            }
-        }
-
-        private bool IsIdle()
+        public bool IsIdle()
         {
             return _movementInput == Vector2.zero && !aiPath.enabled;
         }
 
-        private WatchDirection CalculateWatchDirection(Vector2 direction)
-        {
-            var normalizedDirection = direction.normalized;
-
-            if (normalizedDirection.x > 0)
-            {
-                if (normalizedDirection.y > 0)
-                {
-                    //TODO decision North || East
-                    return WatchDirection.NorthEast;
-                }
-                else if (normalizedDirection.y < 0)
-                {
-                    //TODO decision South || East
-                    return WatchDirection.SouthEast;
-                }
-                else // y == 0
-                {
-                    return WatchDirection.East;
-                }
-            }
-            else if (normalizedDirection.x < 0)
-            {
-                if (normalizedDirection.y > 0)
-                {
-                    //TODO decision North || West
-                    return WatchDirection.NorthWest;
-                }
-                else if (normalizedDirection.y < 0)
-                {
-                    //TODO decision South || West
-                    return WatchDirection.SouthWest;
-                }
-                else // y == 0
-                {
-                    return WatchDirection.West;
-                }
-            }
-            else // x == 0
-            {
-                if (normalizedDirection.y > 0)
-                {
-                    return WatchDirection.North;
-                }
-                else if (normalizedDirection.y < 0)
-                {
-                    return WatchDirection.South;
-                }
-                else // y == 0
-                {
-                    return _watchDirection;
-                }
-            }
-        }
-
-        public void ForceIdle()
-        {
-            _idle = true;
-                
-            _animator.SetBool("Idle", _idle);
-            _animator.SetTrigger(_watchDirection.ToString());
-        }
+        
     }
 }

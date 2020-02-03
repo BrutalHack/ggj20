@@ -17,12 +17,32 @@ MonoBehaviour:
   - event:/Voice/Cutscenes/Outro/02
   - event:/Voice/Cutscenes/Outro/03
   - event:/Voice/Cutscenes/Outro/04
-  - event:/Voice/Cutscenes/Outro/01
-  - event:/Voice/Cutscenes/Outro/01
+  - event:/Voice/Cutscenes/Outro/05
+  - event:/Voice/Cutscenes/Outro/05
+  - event:/Voice/Cutscenes/Outro/05
+  - event:/Voice/Cutscenes/Outro/05
+  - event:/Voice/Cutscenes/Outro/05
+  - event:/Voice/Cutscenes/Outro/05
+  - event:/Voice/Cutscenes/Outro/05
+  - event:/Voice/Cutscenes/Outro/05
+  - event:/Voice/Cutscenes/Outro/05
+  - event:/Voice/Cutscenes/Outro/05
+  - event:/Voice/Cutscenes/Outro/05
+  - event:/Voice/Cutscenes/Outro/05
   texts:
   - Things do not have to be as bad as they seem.
   - Storms come and go, but nothing's beyond repair.
   - This is YOUR playground.
   - (Voices)
   - CMD:Outro
-  - CMD:Center
+  - Thank you for playing Whispers
+  - 'Made during the Global Game Jam 2020 by:'
+  - Sergej Tihonov (Programming)
+  - Benjamin Justice (Programming)
+  - Stefanie Curth (Art)
+  - "Michaela M\xFCller (Art)"
+  - Christian Plinke (Music)
+  - Henrik Porath (Dialogue)
+  - Heidemarie Schimkus (Voice Acting)
+  - Find more games at BrutalHack.com
+  - The End.

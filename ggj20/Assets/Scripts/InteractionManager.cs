@@ -65,7 +65,10 @@ namespace com.BrutalHack.GlobalGameJam20
                 return;
             }
             
+            FindObjectOfType<MusicManager>().PlayEndMusic();
+            await Task.Delay(TimeSpan.FromSeconds(5));
             await acceptanceCinematic.PlayCinematicAsync();
+            await Task.Delay(TimeSpan.FromSeconds(3));
 
             _lightPhase = true;
             lightObjects.ForEach(o => o.gameObject.SetActive(true));
@@ -85,6 +88,7 @@ namespace com.BrutalHack.GlobalGameJam20
 
         private void OutroFinished()
         {
+            FindObjectOfType<MusicManager>().StopEndMusic();
             SceneManager.LoadScene("Title");
         }
     }

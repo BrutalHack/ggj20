@@ -14,7 +14,7 @@ namespace com.BrutalHack.GlobalGameJam20
         private EventInstance eventInstance;
         private EventInstance acceptanceMusicInstance;
         private const string VoiceParameterName = "Voice";
-        private const string AngerDistParameterName = "Zorn Dist";
+        private const string AngerDistParameterName = "Zorn Distance";
         private const string DepressionDistParameterName = "Depr Dist";
         private const string DepressionEndParameterName = "Depr End";
 
@@ -30,27 +30,32 @@ namespace com.BrutalHack.GlobalGameJam20
         public void SetVoice(bool active)
         {
             eventInstance.setParameterByName(VoiceParameterName, Convert.ToInt32(active));
+            acceptanceMusicInstance.setParameterByName(VoiceParameterName, Convert.ToInt32(active));
         }
 
         public void SetAnger(bool active)
         {
-            eventInstance.setParameterByName(VoiceParameterName, Convert.ToInt32(active));
+            eventInstance.setParameterByName(AngerDistParameterName, Convert.ToInt32(active));
         }
         
         public void SetDepression(bool active)
         {
-            eventInstance.setParameterByName(VoiceParameterName, Convert.ToInt32(active));
+            eventInstance.setParameterByName(DepressionDistParameterName, Convert.ToInt32(active));
         }
         
         public void SetDepressionEnd(bool active)
         {
-            eventInstance.setParameterByName(VoiceParameterName, Convert.ToInt32(active));
+            eventInstance.setParameterByName(DepressionEndParameterName, Convert.ToInt32(active));
         }
 
         public void PlayEndMusic()
         {
             eventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             acceptanceMusicInstance.start();
+        }
+        public void StopEndMusic()
+        {
+            RuntimeManager.GetBus("Bus:/").stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
     }
 }

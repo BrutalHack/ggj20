@@ -31,12 +31,14 @@ namespace com.BrutalHack.GlobalGameJam20
         private Animator skyAnimator;
         private bool startNextLine;
         [SerializeField] private bool isDone;
+        private PlayerLookDirection playerLookDirection;
 
         private void Awake()
         {
             cinematicUiController =
                 GameObject.FindWithTag("CinematicUiController").GetComponent<CinematicUiController>();
             playerMovement = FindObjectOfType<PlayerMovement>();
+            playerLookDirection = FindObjectOfType<PlayerLookDirection>();
             playerRigidBody = playerMovement.GetComponent<Rigidbody2D>();
             playerAiPath = playerMovement.GetComponent<AIPath>();
             musicManager = FindObjectOfType<MusicManager>();
@@ -46,13 +48,15 @@ namespace com.BrutalHack.GlobalGameJam20
         // Update is called once per frame
         public async Task PlayCinematicAsync()
         {
-            playerMovement.ForceIdle();
             musicManager.SetVoice(true);
             cinematicUiController.Show();
             playerMovement.enabled = false;
             playerRigidBody.velocity = Vector2.zero;
+            playerLookDirection.ForceIdle();
             await Task.Delay(TimeSpan.FromSeconds(cinematicStartDelay));
             isPlaying = true;
+            var aStarTarget = GameObject.FindWithTag("AStarTarget").transform;
+            aStarTarget.position = playerRigidBody.transform.position;
         }
 
         private async Task FinishCinematic()
@@ -104,8 +108,9 @@ namespace com.BrutalHack.GlobalGameJam20
                 {
                     var aStarTarget = GameObject.FindWithTag("AStarTarget").transform;
                     aStarTarget.position = new Vector3(0, -3, 0);
+                    playerLookDirection.enabled = true;
                     playerAiPath.enabled = true;
-                    await Task.Delay(TimeSpan.FromSeconds(3.0));
+                    await Task.Delay(TimeSpan.FromSeconds(5.0));
                     playerAiPath.enabled = false;
                     isPlaying = true;
                     nextLinePosition++;
@@ -138,13 +143,12 @@ namespace com.BrutalHack.GlobalGameJam20
                 if (model.texts[nextLinePosition].Equals("CMD:Outro", StringComparison.OrdinalIgnoreCase))
                 {
                     isPlaying = false;
+                    musicManager.SetVoice(false);
                     skyAnimator.ResetTrigger(Intro);
                     skyAnimator.SetTrigger(Outro);
                     skyAnimator.ResetTrigger(Sun);
                     await Task.Delay(TimeSpan.FromSeconds(4.0));
-                    //TODO Roll credits
-                    //Remain off
-                    isPlaying = false;
+                    isPlaying = true;
                     nextLinePosition++;
                     return new EventInstance();
                 }

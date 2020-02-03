@@ -118,7 +118,6 @@ namespace com.BrutalHack.GlobalGameJam20
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            musicManager.PlayEndMusic();
             _cinematic.onCinematicFinishedEvent -= AfterInteraction;
             gameObject.SetActive(false);
             _interactionManager.NextPhase();
